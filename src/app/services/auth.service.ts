@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 
 import { User } from '../model/user';
 
@@ -40,9 +38,9 @@ export class AuthService {
   }
 
   logout() {
-    if (localStorage.removeItem('access_token') == null) {
-      this.router.navigate(['/login']);
-    }
+    this.router.navigate(['/login']);
+    localStorage.removeItem('access_token');
+     
   }
 
   handleError(error: HttpErrorResponse) {
