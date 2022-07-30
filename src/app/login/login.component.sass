@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap')
+
+$light-blue: #87cefa
+$blue: #1e90ff
+
+.container
+    position: relative
+    display: flex
+    flex: auto
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+.row
+    width: 40%
+    height: 100%
+
+.card
+    border-radius: .5rem
+
+    .card-header
+        background-color: #ededed
+        width: auto
+        padding: 0.3rem 1rem 0.3rem 1rem
+        border: none
+
+    .card-body
+        border: none
+
+        .form-control
+            font-size: 16px
+            padding-top: .5rem
+            padding-bottom: .5rem
+            &::placeholder
+                color: #d4d4d4
+
+    .btn
+        font-size: .9rem
+        font-family: 'Poppins'
+        background-color: $blue
+        border: none
+        padding: .5rem
+        width: 30%
+        margin-top: .5rem
+        margin-bottom: .5rem
+        box-shadow: none
+
+        &:hover
+            background-color: $light-blue
+            border: none
+            outline: none
+            box-shadow: none
