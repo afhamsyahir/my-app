@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-
-
 import { User } from '../model/user';
 
 
@@ -13,9 +11,6 @@ import { User } from '../model/user';
 
 export class AuthService {
   API_URL: string = 'http://test-demo.aemenersol.com/api';
-  // headers = new HttpHeaders().set('Content-Type', 'application.json');
-  currentUser = {};
-  token = {};
 
   constructor(private httpClient: HttpClient,public router: Router){}
 
@@ -23,7 +18,6 @@ export class AuthService {
     return this.httpClient.post<any>(`${this.API_URL}/account/login`, user)
       .subscribe((res: any) => {   
         localStorage.setItem('access_token', res);    
-          this.currentUser = res;
           this.router.navigate(['/dashboard']);
       })
   }
@@ -46,10 +40,9 @@ export class AuthService {
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
-      // client-side error
       msg = error.error.message;
     } else {
-      // server-side error
+
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);

@@ -11,5 +11,5 @@ export class UserService {
 
   public getData(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/dashboard`);
-}
+  }
 }
